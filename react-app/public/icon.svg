@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="56" fill="#0A1628"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Globe -->
+  <circle cx="60" cy="54" r="28" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+  <!-- Latitude lines -->
+  <ellipse cx="60" cy="54" rx="28" ry="10" fill="none" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  <ellipse cx="60" cy="54" rx="28" ry="20" fill="none" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  <!-- Longitude lines -->
+  <ellipse cx="60" cy="54" rx="10" ry="28" fill="none" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  <ellipse cx="60" cy="54" rx="20" ry="28" fill="none" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  <!-- Center meridian -->
+  <line x1="60" y1="26" x2="60" y2="82" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  <line x1="32" y1="54" x2="88" y2="54" stroke="#60A5FA" stroke-width="1.2" opacity="0.5"/>
+  
+  <!-- Shield overlay -->
+  <path d="M60 30 L78 40 L78 62 C78 74 60 84 60 84 C60 84 42 74 42 62 L42 40 Z" 
+        fill="#1E3A5F" fill-opacity="0.85" stroke="#F59E0B" stroke-width="2"/>
+  
+  <!-- Star in shield -->
+  <polygon points="60,38 63,48 73,48 65,54 68,64 60,58 52,64 55,54 47,48 57,48" 
+           fill="#F59E0B"/>
+  
+  <!-- AI sparkle dots -->
+  <circle cx="36" cy="36" r="2" fill="#818CF8" opacity="0.8"/>
+  <circle cx="84" cy="36" r="2" fill="#818CF8" opacity="0.8"/>
+  <circle cx="30" cy="60" r="1.5" fill="#818CF8" opacity="0.6"/>
+  <circle cx="90" cy="60" r="1.5" fill="#818CF8" opacity="0.6"/>
+  
+  <!-- Orbital ring -->
+  <ellipse cx="60" cy="54" rx="38" ry="14" fill="none" stroke="#818CF8" stroke-width="1.5" 
+           stroke-dasharray="4 3" opacity="0.4" transform="rotate(-20 60 54)"/>
+  
+  <!-- Bottom text area -->
+  <text x="60" y="104" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#94A3B8" letter-spacing="2">USUN ROME</text>
+</svg>

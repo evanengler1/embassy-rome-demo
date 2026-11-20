@@ -1,0 +1,42 @@
+-- =============================================================================
+-- USUN Rome Demo | 01_setup.sql
+-- Creates the dedicated role, warehouse, database, schema, and grants.
+-- =============================================================================
+
+USE ROLE ACCOUNTADMIN;
+
+-- Role
+CREATE ROLE IF NOT EXISTS DOS_ROME_DEMO_ROLE;
+GRANT ROLE DOS_ROME_DEMO_ROLE TO ROLE SYSADMIN;
+GRANT ROLE DOS_ROME_DEMO_ROLE TO USER <YOUR_USER>;
+
+-- Warehouse
+CREATE WAREHOUSE IF NOT EXISTS DOS_ROME_DEMO_WH
+  WAREHOUSE_SIZE = 'XSMALL'
+  AUTO_SUSPEND = 120
+  AUTO_RESUME  = TRUE
+  INITIALLY_SUSPENDED = TRUE;
+
+GRANT USAGE ON WAREHOUSE DOS_ROME_DEMO_WH TO ROLE DOS_ROME_DEMO_ROLE;
+
+-- Database and schemas (medallion architecture)
+CREATE DATABASE IF NOT EXISTS DOS_ROME_DEMO;
+GRANT OWNERSHIP ON DATABASE DOS_ROME_DEMO TO ROLE DOS_ROME_DEMO_ROLE COPY CURRENT GRANTS;
+
+USE ROLE DOS_ROME_DEMO_ROLE;
+USE DATABASE DOS_ROME_DEMO;
+
+CREATE SCHEMA IF NOT EXISTS BRONZE COMMENT = 'Raw tables: CRM, intelligence, policy documents';
+CREATE SCHEMA IF NOT EXISTS SILVER COMMENT = 'Cortex Search services';
+CREATE SCHEMA IF NOT EXISTS GOLD   COMMENT = 'Semantic views, agents, Streamlit apps';
+
+USE ROLE ACCOUNTADMIN;
+
+-- Cortex access
+GRANT DATABASE ROLE SNOWFLAKE.CORTEX_USER TO ROLE DOS_ROME_DEMO_ROLE;
+
+-- Switch to demo role for all subsequent scripts
+USE ROLE DOS_ROME_DEMO_ROLE;
+USE WAREHOUSE DOS_ROME_DEMO_WH;
+USE DATABASE DOS_ROME_DEMO;
+USE SCHEMA BRONZE;

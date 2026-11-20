@@ -1,0 +1,38 @@
+version: 2
+
+name: usun_rome_dashboard
+database: DOS_ROME_DEMO
+schema: PUBLIC
+query_warehouse: DOS_ROME_DEMO_WH
+
+label: US Embassy in Rome Intelligence
+description: Diplomatic intelligence platform for the U.S. Mission to the UN Agencies in Rome.
+icon: public/icon.svg
+
+ignore:
+  - node_modules
+  - .env*
+  - .next
+  - .git
+  - __pycache__
+  - "*.pyc"
+  - snowflake.log
+
+install:
+  commands:
+    - [npm, install]
+
+build:
+  commands:
+    - [npm, run, build]
+
+run:
+  command: [npm, start]
+
+environment_variables:
+  - name: SNOWFLAKE_DATABASE
+    value: DOS_ROME_DEMO
+  - name: SNOWFLAKE_WAREHOUSE
+    value: DOS_ROME_DEMO_WH
+  - name: SNOWFLAKE_ROLE
+    value: DOS_ROME_DEMO_ROLE

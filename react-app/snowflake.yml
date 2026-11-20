@@ -1,0 +1,23 @@
+definition_version: "2"
+
+entities:
+  usun_rome_dashboard:
+    type: snowflake-app
+    identifier:
+      name: USUN_ROME_DASHBOARD
+      database: DOS_ROME_DEMO
+      schema: PUBLIC
+    artifacts:
+      - src: ./*
+        dest: ./
+        ignore:
+          - node_modules
+          - .env*
+          - __pycache__
+          - "*.pyc"
+          - .next
+          - .git
+          - snowflake.log
+
+    query_warehouse: DOS_ROME_DEMO_WH
+

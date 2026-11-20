@@ -1,0 +1,5 @@
+[project]
+name = "usun-rome-dashboard"
+version = "1.0.0"
+description = "USUN Rome Snowflake AI Demo Dashboard"
+requires-python = ">=3.11"

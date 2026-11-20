@@ -1,0 +1,10 @@
+definition_version: 2
+entities:
+  dos_rome_dashboard:
+    type: streamlit
+    identifier: DOS_ROME_DEMO.GOLD.DOS_ROME_DASHBOARD
+    query_warehouse: DOS_ROME_DEMO_WH
+    main_file: streamlit_app.py
+    artifacts:
+      - streamlit_app.py
+      - pyproject.toml
